@@ -43,26 +43,26 @@ def find_min_coins(amount):
     return result
 
 
-def test_algorythm_time(algorythm, amount) -> int:
+def test_algorithm_time(algorithm, amount) -> int:
     start_time = timeit.default_timer()
-    algorythm(amount)
+    algorithm(amount)
     end_time = timeit.default_timer()
     return end_time - start_time
 
 
-def test_algorythm(algorythm) -> int:
+def test_algorithm(algorithm) -> int:
     return {
-        "small_amount": test_algorythm_time(algorythm, 115),
-        "medium_amount": test_algorythm_time(algorythm, 1015),
-        "big_amount": test_algorythm_time(algorythm, 1000049),
+        "small_amount": test_algorithm_time(algorithm, 115),
+        "medium_amount": test_algorithm_time(algorithm, 1015),
+        "big_amount": test_algorithm_time(algorithm, 1000049),
     }
 
 
-def print_test_results(algorythm_name, results):
-    print(f"{algorythm_name}:")
+def print_test_results(algorithm_name, results):
+    print(f"{algorithm_name}:")
     for amount, time in results.items():
         print(f"{amount}: {time} seconds")
 
 
-print_test_results("find_min_coins", test_algorythm(find_min_coins))
-print_test_results("find_coins_greedy", test_algorythm(find_coins_greedy))
+print_test_results("find_min_coins", test_algorithm(find_min_coins))
+print_test_results("find_coins_greedy", test_algorithm(find_coins_greedy))
